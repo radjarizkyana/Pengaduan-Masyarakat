@@ -21,7 +21,7 @@
             @foreach ($pengaduan as $k => $v)
             <tr>
                 <td>{{ $k += 1 }}</td>
-                <td>{{ $v->tgl_pengaduan->format('d-M-Y') }}</td>
+                <td>{{ $v->tgl_pengaduan }}</td>
                 <td>{{ $v->isi_laporan }}</td>
                 <td>
                     @if ($v->status == '0')

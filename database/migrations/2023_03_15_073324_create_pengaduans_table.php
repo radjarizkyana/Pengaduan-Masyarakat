@@ -26,8 +26,6 @@ class CreatePengaduansTable extends Migration
             $table->enum('status', ['0', 'proses', 'selesai']);
 
             $table->timestamps();
-
-            $table->foreign('nik')->references('nik')->on('masyarakat');
         });
     }
 

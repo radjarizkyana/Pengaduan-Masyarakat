@@ -30,6 +30,15 @@
         margin-bottom: 50px
     }
 
+    .btn-black:hover {
+        background: #070707;
+        border: black;
+        width: 100%;
+        color: #fff;
+        font-weight: 600;
+        margin-bottom: 50px
+    }
+
 </style>
 @endsection
 

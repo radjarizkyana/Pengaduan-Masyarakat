@@ -19,78 +19,20 @@
             </tr>
         </thead>
         <tbody>
+            @foreach ($months as $key => $month)
+            @foreach ($pengaduan as $key2 => $item)
+            @if ($key == $key2-1)
             <tr>
-                <td>Januari</td>
-                <th>{{ $pending }}</th>
-                <th>{{ $proses }}</th>
-                <th>{{ $selesai }}</th>
+                <td>{{ $month }}</td>
+                <td>{{ $key == $key2-1 ? $item->where('status', '0')->count() : 0 }}</td>
+                <td>{{ $key == $key2-1 ? $item->where('status', 'proses')->count() : 0 }}</td>
+                <td>{{ $key == $key2-1 ? $item->where('status', 'selesai')->count() : 0 }}</td>
             </tr>
-            <tr>
-                <td>Februari</td>
-                <th>{{ $pending }}</th>
-                <th>{{ $proses }}</th>
-                <th>{{ $selesai }}</th>
-            </tr>
-            <tr>
-                <td>Maret</td>
-                <th>{{ $pending }}</th>
-                <th>{{ $proses }}</th>
-                <th>{{ $selesai }}</th>
-            </tr>
-            <tr>
-                <td>April</td>
-                <th>{{ $pending }}</th>
-                <th>{{ $proses }}</th>
-                <th>{{ $selesai }}</th>
-            </tr>
-            <tr>
-                <td>Mei</td>
-                <th>{{ $pending }}</th>
-                <th>{{ $proses }}</th>
-                <th>{{ $selesai }}</th>
-            </tr>
-            <tr>
-                <td>Juni</td>
-                <th>{{ $pending }}</th>
-                <th>{{ $proses }}</th>
-                <th>{{ $selesai }}</th>
-            </tr>
-            <tr>
-                <td>Juli</td>
-                <th>{{ $pending }}</th>
-                <th>{{ $proses }}</th>
-                <th>{{ $selesai }}</th>
-            </tr>
-            <tr>
-                <td>Agustus</td>
-                <th>{{ $pending }}</th>
-                <th>{{ $proses }}</th>
-                <th>{{ $selesai }}</th>
-            </tr>
-            <tr>
-                <td>September</td>
-                <th>{{ $pending }}</th>
-                <th>{{ $proses }}</th>
-                <th>{{ $selesai }}</th>
-            </tr>
-            <tr>
-                <td>Oktober</td>
-                <th>{{ $pending }}</th>
-                <th>{{ $proses }}</th>
-                <th>{{ $selesai }}</th>
-            </tr>
-            <tr>
-                <td>November</td>
-                <th>{{ $pending }}</th>
-                <th>{{ $proses }}</th>
-                <th>{{ $selesai }}</th>
-            </tr>
-            <tr>
-                <td>Desember</td>
-                <th>{{ $pending }}</th>
-                <th>{{ $proses }}</th>
-                <th>{{ $selesai }}</th>
-            </tr>
+            @endif
+            @endforeach
+            @endforeach
+        </tbody>
+        <tbody>
         </tbody>
     </table>
 @endsection
@@ -99,7 +41,9 @@
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#masyarakatTable').DataTable();
+            $('#masyarakatTable').DataTable({
+                order: false,
+            });
         } );
     </script>
 @endsection

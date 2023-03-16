@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Pengaduan extends Model
 {
@@ -29,6 +30,11 @@ class Pengaduan extends Model
         'tgl_pengaduan',
         'tgl_kejadian',
     ];
+
+    public function scopeMonth($query)
+    {
+    return $query->whereMonth('created_at','=',Carbon::today()->month);
+    }
 
     public function user()
     {

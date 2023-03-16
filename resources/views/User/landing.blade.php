@@ -46,14 +46,14 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link ml-3 text-white" href="{{ route('pekat.logout') }}"
-                                style="text-decoration: underline">{{ Auth::guard('masyarakat')->user()->nama }}</a>
+                                style="text-decoration: none">Hi!&nbsp; {{ Auth::guard('masyarakat')->user()->nama }} / Logout</a>
                         </li>
                     </ul>
                     @else
                     <ul class="navbar-nav text-center ml-auto">
                         <li class="nav-item">
                             <button class="btn text-white" type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#loginModal">Masuk /</button>
+                                data-target="#loginModal">Masuk</button>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('pekat.formRegister') }}" class="btn btn-outline-green">Daftar</a>
@@ -136,12 +136,11 @@
     </div>
 </div>
 
-<form action="{{ route('pekat.store') }}" method="POST" enctype="multipart/form-data">
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
-                <h3 class="mt-3">Masuk terlebih dahulu!</h3>
+                <h3 class="mt-3">Masuk terlebih dahulu</h3>
                 <p>Silahkan masuk menggunakan akun yang sudah didaftarkan.</p>
                 <form action="{{ route('pekat.login') }}" method="POST">
                     @csrf
@@ -150,12 +149,12 @@
                         <input type="text" name="username" id="username" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="password">Masukan Kata Sandi</label>
+                        <label for="password">Masukan Password</label>
                         <input type="password" name="password" id="password" class="form-control">
                     </div>
-                    <button type="submit" class="btn btn-green text-white mt-1 mb-2" style="width: 100%">Masuk Sebagai Masyarakat</button>
-                    <h5 class="text-center">Atau</h5>
-                    <a href="{{ route('admin.login') }}"><button type="submit" class="btn btn-green text-white" style="width: 100%">Masuk Sebagai Petugas</button></a>
+                    <button type="submit" class="btn btn-green text-white mt-1" style="width: 100%">Masuk</button>
+                    {{-- <p class="text-center" style="color: black; padding-top: 5px;">atau</p> --}}
+                    <a type="submit" class="text-center" style="width: 100%; margin-top: 5px; color: black;" href="{{ route('login') }}">Atau Masuk Sebagai Petugas</a>
                 </form>
                 @if (Session::has('pesan'))
                 <div class="alert alert-danger mt-2">

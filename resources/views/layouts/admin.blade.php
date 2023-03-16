@@ -54,6 +54,9 @@
                 <li class="{{ Request::is('admin/masyarakat') ? 'active' : '' }}">
                     <a href="{{ route('masyarakat.index') }}">Masyarakat</a>
                 </li>
+                <li class="{{ Request::is('admin/rekapitulasi') ? 'active' : '' }}">
+                    <a href="{{ route('rekapitulasi.index') }}">Rekapitulasi</a>
+                </li>
                 <li class="{{ Request::is('admin/laporan') ? 'active' : '' }}">
                     <a href="{{ route('laporan.index') }}">Laporan</a>
                 </li>
@@ -87,7 +90,7 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
-                            <a href="{{ route('admin.logout') }}" class="btn btn-white btn-sm">{{ Auth::guard('admin')->user()->nama_petugas }}</a>
+                            <a href="{{ route('admin.logout') }}" class="btn btn-white btn-sm">As   {{ Auth::guard('admin')->user()->nama_petugas }} / Logout</a>
                         </ul>
                     </div>
                 </div>

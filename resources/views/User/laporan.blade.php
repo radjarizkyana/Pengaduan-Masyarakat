@@ -46,7 +46,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link ml-3 text-white" href="{{ route('pekat.logout') }}"
-                                style="text-decoration: underline">{{ Auth::guard('masyarakat')->user()->nama }}</a>
+                                style="text-decoration: none">Hi!&nbsp;{{ Auth::guard('masyarakat')->user()->nama }} / Logout</a>
                         </li>
                     </ul>
                     @else
@@ -151,7 +151,7 @@
     <div class="row mt-5">
         <div class="col-lg-8">
             <a class="d-inline tab {{ $siapa != 'me' ? 'tab-active' : ''}} mr-4" href="{{ route('pekat.laporan') }}">
-                Semua
+                Laporan Lain Yang Sudah Ditangani
             </a>
             <a class="d-inline tab {{ $siapa == 'me' ? 'tab-active' : ''}}" href="{{ route('pekat.laporan', 'me') }}">
                 Laporan Saya
